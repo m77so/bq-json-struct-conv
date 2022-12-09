@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BigQuery JSON Struct Converter</title>
+    <style>
+      h1 {
+        font-size: 2em;
+      }
+      .parent-textarea{
+        width: 50%;
+        float: left;
+      }
+      .parent-textarea textarea{
+        width: 95%;
+        height: 20em;
+        margin: auto;
+        resize: vertical;
+      }
+      @media screen and (max-width: 480px) {
+        .parent-textarea{
+          width: 100%;
+          float: left;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index.df79469f.js"></script>
+  </head>
+  <body>
+    <h1>BigQuery JSON->STRUCT Converter</h1>
+    <div id="app">
+      <div>
+        <button id="convert" style="font-size: large;">変換</button>
+        <div style="background-color: antiquewhite;" id="message"></div>
+      </div>
+      
+      <hr />
+      <div class="parent-textarea">
+        変換元: BigQueryのJSONによるスキーマ定義<br />
+        <textarea id="json_input" >
+[
+  { "mode": "NULLABLE",  "name": "date", "type": "DATE"},
+  {
+    "fields": [
+      { "mode": "NULLABLE", "name": "country", "type": "STRING"},
+      { "mode": "NULLABLE", "name": "ZipCode", "type": "STRING"}
+    ],
+    "mode": "NULLABLE",  "name": "location", "type": "RECORD"
+  },
+  { "mode": "REPEATED",  "name": "timestamps", "type": "TIMESTAMP"},
+  {
+    "fields": [
+      { "mode": "NULLABLE", "name": "id", "type": "INTEGER"},
+      { "mode": "NULLABLE", "name": "name", "type": "STRING"}
+    ],
+    "mode": "REPEATED",  "name": "users", "type": "RECORD"
+  }
+]
+        </textarea>
+      </div>
+      <div class="parent-textarea">
+        変換先: SELECT文<br />
+        <textarea id="query_output" readonly></textarea>
+      </div>
+    </div>
+    
+  </body>
+</html>
