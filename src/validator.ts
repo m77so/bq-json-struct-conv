@@ -38,22 +38,3 @@ const BqJsonSchemaElem = j.any([
 
 export const BqJsonSchemaValidator = j.array(BqJsonSchemaElem)
 
-const x =     [
-  { "mode": "NULLABLE",  "name": "date", "type": "DATE"},
-  {
-    "fields": [
-      { "mode": "NULLABLE", "name": "country", "type": "STRING"},
-      { "mode": "NULLABLE", "name": "ZipCode", "type": "STRING"},
-    ],
-    "mode": "NULLABLE",  "name": "location", "type": "RECORD"
-  },
-  { "mode": "REPEATED",  "name": "timestamps", "type": "TIMESTAMP"},
-  {
-    "fields": [
-      { "mode": "NULLABLE", "name": "id", "type": "INTEGER"},
-      { "mode": "NULLABLE", "name": "name", "type": "STRING"},
-    ],
-    "mode": "REPEATED",  "name": "users", "type": "RECORD"
-  },
-]
-
